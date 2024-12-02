@@ -12,25 +12,54 @@ public class Bank {
         this.accounts = accounts;
     }
 
+    // Mostrar todas las cuentas del banco (IBAN, saldo y NIF del cliente)
+
     public void showAccount() {
         for (Account account : accounts) {
-            System.out.println("IBAN: " + account.getIban() + "Saldo: " + account.getBalance() + "NIF: " + account.getCustomer().getNif());
+            account.showInfo();
         }
     }
 
-    public void showInfo(String iban) {
+    // Dado un IBAN, mostrar la información de la cuenta con ese IBAN.
+
+    public void showAccountIban(String iban) {
         for (Account account : accounts) {
             if (account.getIban().equals(iban)) {
+                account.showInfo();
             }
         }
     }
 
-    public void showAccountNif() {
+    // Dado un NIF, mostrar todas las cuentas del cliente con ese NIF
+
+    public void showAccountNif(String nif) {
         for (Account account : accounts) {
-            System.out.println(account);
+            if (account.getCustomer().getNif().equals(nif)) {
+                account.showInfo();
+            }
         }
     }
 
+
+    // Dado un IBAN y una cantidad de dinero, ingresar esa cantidad en la cuenta con ese IBAN.
+    // Si no se encuentra la cuenta con ese IBAN muestra el mensaje "No se encuentra la cuenta"
+
+    public Account findAccount(String iban) {
+        for (Account account : accounts) {
+            if (account.getIban().equals(iban)) {
+                return account;
+            }
+        }
+        return null;
+    }
+
+    public void showIbanBalance(String iban, double balance) {
+        for (Account account : accounts) {
+            if (account.getIban().equals(iban)) {
+                account.setBalance(account.getBalance() + balance);
+            }
+        }
+    }
 
     public String getName() {
         return name;

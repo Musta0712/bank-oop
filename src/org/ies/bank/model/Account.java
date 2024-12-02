@@ -13,6 +13,10 @@ public class Account {
         this.customer = customer;
     }
 
+    public void showInfo() {
+        System.out.println("IBAN: " + iban + "Saldo: " + balance + "NIF: " + customer.getNif());
+    }
+
     public String getIban() {
         return iban;
     }
