@@ -53,11 +53,35 @@ public class Bank {
         return null;
     }
 
-    public void showIbanBalance(String iban, double balance) {
+    public void deposit(String iban, double amount) {
+        Account account = findAccount(iban);
+        if (account != null) {
+            account.deposit(amount);
+        } else {
+            System.out.println("Cuenta no encontrada");
+        }
+    }
+
+    // Dado un NIF, devuelve el numero de cuentas de ese cliente.
+
+    public int accounts(String nif) {
+        int cont = 0;
         for (Account account : accounts) {
-            if (account.getIban().equals(iban)) {
-                account.setBalance(account.getBalance() + balance);
+            if (account.getCustomer().getNif().equals(nif)) {
+                cont++;
             }
+        }
+        return cont;
+    }
+
+    // Dado un IBAN, devuelve los datos del cliente al que pertenece la cuenta. Si no existe la cuenta devuelve null.
+
+    public Customer findAccountCustomer(String iban) {
+        Account account = findAccount(iban);
+        if (account != null) {
+            return account.getCustomer();
+        } else {
+            return null;
         }
     }
 
