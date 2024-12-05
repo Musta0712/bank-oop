@@ -13,7 +13,7 @@ public class Main {
         CustomerReader customerReader = new CustomerReader(scanner);
         AccountReader accountReader = new AccountReader(scanner, customerReader);
         BankReader bankReader = new BankReader(scanner, accountReader);
-        BankApp bankApp = new BankApp(scanner, bankReader);
+        BankApp bankApp = new BankApp(scanner, bankReader) ;
 
         bankApp.run();
     }
