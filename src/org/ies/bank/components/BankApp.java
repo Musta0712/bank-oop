@@ -32,6 +32,8 @@ public class BankApp {
 
             if (option == 1) {
                 bank.showAccount();
+            }else if (option == 2){
+                bank.findAccount();
             }
 
         }while
