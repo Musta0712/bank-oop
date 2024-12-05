@@ -57,6 +57,7 @@ public class Bank {
         Account account = findAccount(iban);
         if (account != null) {
             account.deposit(amount);
+            account.showInfo();
         } else {
             System.out.println("Cuenta no encontrada");
         }
