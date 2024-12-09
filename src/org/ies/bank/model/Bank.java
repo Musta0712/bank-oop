@@ -11,6 +11,7 @@ public class Bank {
         this.name = name;
         this.accounts = accounts;
     }
+
     public void showAccountCustomer(String iban) {
         var account = findAccount(iban);
         if (account == null) {
@@ -80,7 +81,6 @@ public class Bank {
             System.out.println("Cuenta no encontrada");
         }
     }
-
     // Dado un NIF, devuelve el numero de cuentas de ese cliente.
 
     public int accounts(String nif) {
@@ -103,6 +103,9 @@ public class Bank {
             return null;
         }
     }
+    // Dados dos IBAN y una cantidad de dinero, realiza una transferencia desde la cuenta con el primer IBAN a la cuenta con el segundo IBAN.
+    // Si una de las cuentas no existo o no hay suficiente saldo en la cuenta de origen no se realiza la trasnferencia y se muestra un error explicando el problema.
+
 
     public String getName() {
         return name;

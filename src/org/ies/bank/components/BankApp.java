@@ -118,10 +118,12 @@ public class BankApp {
             System.out.println("3. Mostrar los datos de las cuentas de un cliente");
             System.out.println("4. Ingresar dinero en cuenta");
             System.out.println("5. Sacar dinero de una cuenta");
-            System.out.println("6. Salir");
+            System.out.println("6. Contar cuentas clientes");
+            System.out.println("7. Mostrar titular de cuenta");
+            System.out.println("8. Salir");
             option = scanner.nextInt();
             scanner.nextLine();
-        } while (option < 1 || option > 6);
+        } while (option < 1 || option > 8);
         return option;
     }
 }
