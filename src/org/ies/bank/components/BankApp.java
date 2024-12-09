@@ -93,9 +93,20 @@ public class BankApp {
                     System.out.println("Solo puedes retirar numeros positivos");
                 } while (amount < 0);
                 bank.deposit(iban, -amount);
-            }
 
-        } while (option != 6);
+            }else if (option==6){
+                System.out.println("Introduce el nif de la cuenta");
+                String nif = scanner.nextLine();
+
+                int customerAccountNumber = bank.countCustomerAccounts(nif);
+                System.out.println("El cliente tiene " + customerAccountNumber + "cuentas.");
+            }else if (option == 7) {
+                System.out.println("Introduce el IBAN:");
+                String iban = scanner.nextLine();
+
+                bank.showAccountCustomer(iban);
+            }
+        } while (option != 8);
     }
 
     private int chooseOption() {

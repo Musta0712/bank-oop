@@ -11,6 +11,24 @@ public class Bank {
         this.name = name;
         this.accounts = accounts;
     }
+    public void showAccountCustomer(String iban) {
+        var account = findAccount(iban);
+        if (account == null) {
+            System.out.println("La cuenta no existe");
+        } else {
+            account.getCustomer().showInfo();
+        }
+    }
+
+
+    public int countCustomerAccounts(String nif) {
+        int count = 0;
+        for (Account account : accounts) {
+            if (account.getCustomer().getNif().equals(nif)) ;
+            count++;
+        }
+        return count;
+    }
 
     // Mostrar todas las cuentas del banco (IBAN, saldo y NIF del cliente)
 
