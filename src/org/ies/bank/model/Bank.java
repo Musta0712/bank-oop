@@ -106,9 +106,18 @@ public class Bank {
     // Dados dos IBAN y una cantidad de dinero, realiza una transferencia desde la cuenta con el primer IBAN a la cuenta con el segundo IBAN.
     // Si una de las cuentas no existo o no hay suficiente saldo en la cuenta de origen no se realiza la trasnferencia y se muestra un error explicando el problema.
 
-    public void transfer (Account origen, Account destination, double amount){
-        if (origen != null && destination != null) {
-            origen.deposit(500);
+    public void transfer (String ibanOrigen, String ibanDestination, double amount){
+            Account account = findAccount(ibanOrigen);
+            Account account2 = findAccount(ibanDestination);
+
+        if (account != null && account2 != null) {
+            if (account.getBalance() >= amount) {
+
+                account.deposit(-amount);
+                account2.deposit(amount);
+            }
+        }else {
+            System.out.println("No hay suficiente saldo");
         }
     }
 
