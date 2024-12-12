@@ -98,6 +98,6 @@ Tendrá un método run() que realice lo siguiente:
     Muestra todas las cuentas del banco
     Saca 50 de la cuenta ES0003
     Muestra las cuentas del cliente con NIF 000X
-    Mete 300 en la cuenta ES004
+    Mete 300 en la cuenta ES0004
     Muestra los datos del titular de la cuenta ES0001
 
